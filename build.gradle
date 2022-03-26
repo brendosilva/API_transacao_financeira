@@ -26,6 +26,13 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 
+
+	// redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'org.springframework.data:spring-data-redis'
+
+
+
 	// spring-doc
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-webflux-ui',version: '1.6.3'
 	implementation("org.springframework.boot:spring-boot-starter-validation")

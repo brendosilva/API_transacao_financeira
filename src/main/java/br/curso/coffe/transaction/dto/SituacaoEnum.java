@@ -1,4 +1,4 @@
-package br.curso.coffe.transaction.api.dto;
+package br.curso.coffe.transaction.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

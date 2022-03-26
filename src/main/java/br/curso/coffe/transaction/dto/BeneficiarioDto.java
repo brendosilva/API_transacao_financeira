@@ -1,10 +1,24 @@
-package br.curso.coffe.transaction.api.dto;
+package br.curso.coffe.transaction.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-public class BeneficiarioDto {
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+public class BeneficiarioDto implements Serializable {
+    private static final long serialVersionUID = 2806421543985360625L;
+
+
+    public BeneficiarioDto() {
+    }
 
     @Schema(description = "CPF do beneficiario")
     @NotNull(message = "Informar o cpf")

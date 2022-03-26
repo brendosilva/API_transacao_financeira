@@ -1,10 +1,12 @@
-package br.curso.coffe.transaction.api.dto;
+package br.curso.coffe.transaction.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.redis.core.RedisHash;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
@@ -16,8 +18,10 @@ import java.util.UUID;
 @Getter
 @Setter
 @EqualsAndHashCode(of = "uuid")
+@RedisHash(value = "TransactionDto", timeToLive = 300)
 public class TransactionDto {
 
+    @Id
     @Schema(description = "Codigo de identificação da transação")
     private UUID uuid;
 

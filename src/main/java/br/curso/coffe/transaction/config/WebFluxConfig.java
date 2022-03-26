@@ -1,4 +1,4 @@
-package br.curso.coffe.transaction.api.config;
+package br.curso.coffe.transaction.config;
 
 import org.springframework.web.reactive.config.ResourceHandlerRegistry;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
