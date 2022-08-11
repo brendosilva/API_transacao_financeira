@@ -13,13 +13,11 @@ import java.util.Optional;
 @Service
 public class TransactionService {
 
-    private TransactionalRedisRepository transactionalRedisRepository;
+    private final TransactionalRedisRepository transactionalRedisRepository;
 
 
     public TransactionService(TransactionalRedisRepository transactionalRedisRepository){
         this.transactionalRedisRepository = transactionalRedisRepository;
-
-
     }
 
     @Transactional
@@ -28,8 +26,6 @@ public class TransactionService {
         requestTransactionDto.setData(LocalDateTime.now());
         return Optional.of(transactionalRedisRepository.save(requestTransactionDto));
     }
-
-
     public Optional<TransactionDto> findById(final String id) {
         return transactionalRedisRepository.findById(id);
     }
