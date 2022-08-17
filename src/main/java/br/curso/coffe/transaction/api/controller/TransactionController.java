@@ -2,6 +2,7 @@ package br.curso.coffe.transaction.api.controller;
 
 import br.curso.coffe.transaction.dto.RequestTransactionDto;
 import br.curso.coffe.transaction.dto.TransactionDto;
+import br.curso.coffe.transaction.exceptions.NotFoundException;
 import br.curso.coffe.transaction.service.TransactionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -56,7 +57,7 @@ public class TransactionController {
     public Mono<TransactionDto> returnTranscation(@PathVariable final String id) {
         final Optional<TransactionDto> dto = transactionService.findById(id);
         if(dto.isPresent()) return Mono.just(dto.get());
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "unable to find resource");
+        throw new NotFoundException("unable to find resource");
     }
 
     @Operation(description = "Recurso da API para remover uma transação persistidas por id")

@@ -2,6 +2,7 @@ package br.curso.coffe.transaction.service;
 
 import br.curso.coffe.transaction.dto.RequestTransactionDto;
 import br.curso.coffe.transaction.dto.TransactionDto;
+import br.curso.coffe.transaction.exceptions.UnauthorizedException;
 import br.curso.coffe.transaction.redis.TransactionalRedisRepository;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ public class TransactionService {
         return Optional.of(transactionalRedisRepository.save(requestTransactionDto));
     }
     public Optional<TransactionDto> findById(final String id) {
+        if(id.equals("2")) throw new UnauthorizedException("Testando exception");
         return transactionalRedisRepository.findById(id);
     }
 
