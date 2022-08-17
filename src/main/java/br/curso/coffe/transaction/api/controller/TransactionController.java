@@ -43,8 +43,6 @@ public class TransactionController {
             return Mono.just(dto.get());
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
-
-
     }
 
     @Operation(description = "Recurso da API para buscar  as transações persistidas por id")
