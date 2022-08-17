@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.List;
 import java.util.function.Supplier;
 
 @Service
@@ -34,7 +35,7 @@ public class LimiteService {
         return Decorators
                 .ofSupplier(limiteDiarioSupplier)
                 .withCircuitBreaker(countCircuitBreaker)
-                .withFallback(Arrays.asList(CallNotPermittedException.class), e -> this.getStaticLimit())
+                .withFallback(List.of(CallNotPermittedException.class), e -> this.getStaticLimit())
                 .decorate();
     }
 
