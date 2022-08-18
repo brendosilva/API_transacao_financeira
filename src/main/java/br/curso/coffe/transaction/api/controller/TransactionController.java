@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("/transaction")
 @Tag(name = "/transaction", description = "Recursos API's para manipulação de transações financeiras")
 public class TransactionController {
     private TransactionService transactionService;
